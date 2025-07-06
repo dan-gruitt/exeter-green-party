@@ -24,7 +24,7 @@ const pool = mysql.createPool({
 app.get('/api/addresses', async (req, res) => {
   try {
     console.log('Trying DB query...');
-    const [rows] = await pool.query('SELECT * FROM addresses'); // change this as needed
+    const [rows] = await pool.query('SELECT * FROM addresses LIMIT 50'); // change this as needed
     console.log('Query successful:', rows);
     res.json(rows); // send back as JSON to your React app
   } catch (err) {
